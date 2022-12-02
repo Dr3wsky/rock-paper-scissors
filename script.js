@@ -3,13 +3,12 @@
 // The script is called and run from the rock-paper-scissors.html file, with output displayed in the browser console. 
 
 // Define Variables
-const min = 1;
-const max = 3;
+const min = Math.ceil(1);
+const max = Math.floor(3);
 let roundCount = 0
 let playerScore = 0;
 let cpuScore = 0;
 
-let roundWinner;
 let userPick;
 let cpuVal;
 let cpuPick; 
@@ -30,48 +29,47 @@ function playerPick() {
 
 // Use the random number gernerator from JS Math object to randomly assign cpu selection between min and max of 1-3, THEN convert random number to string for comparison with player choice.
 function cpuAssign(min, max) {
-    min = Math.ceil(min);
-    max - Math.floor(max);
-    cpuVal = Math.floor(Math.random() * (max - min + 1)) + 1;
-    if (cpuVal === 1) {
-        cpuPick = 'rock';
-    } else if (cpuVal === 2) {
-        cpuPick = 'paper';
-    } else {
-        cpuPick = 'scissors';
-    }
-    return cpuPick.toUpperCase();
+    cpuVal = Math.floor(Math.random() * (max - min + 1) + min);
+    if(cpuVal >= 1 && cpuVal <= 3) {
+        (cpuVal == 1) ? cpuPick = "ROCK" : (cpuVal == 2) ? cpuPick = 'PAPER' : (cpuPick = "SCISSORS");
+        return cpuPick;
+    } else console.log("Error in function: cpuAssign")
+    return cpuPick;
 }
 
 // Compare player and cpu picks, provide feedback log and increment score. 
 function comparePicks(userPick, cpuPick) {
     if (userPick === cpuPick) {
-        console.log(`It's a draw! You both chose ${userPick}`)
+        console.log(`It's a draw!`);
 
-    } else if ((userPick == 'rock' && cpuPick == 'scissors') || (userPick == 'paper' && cpuPick == 'rock') ||
-        (userPick == 'scissors' && cpuPick == 'paper')) {
-        console.log(`Player wins! ${userPick} beats ${cpuPick}`);
+    } else if ((userPick == 'ROCK' && cpuPick == 'SCISSORS') || (userPick == 'PAPER' && cpuPick == 'ROCK') ||
+        (userPick == 'SCISSORS' && cpuPick == 'PAPER')) {
+        console.log(`Player wins this round!`);
         return playerScore += 1;
 
     } else {
-        console.log(`CPU wins! ${cpuPick} beats ${playerPick}`);
+        console.log(`CPU wins this round!`);
         return cpuScore += 1;
     }
 }
 
 // Game function to call to run game logic. Increments rounds and keeps score until user quits or first to 10 points.
-function GameOn() {
-    roundCount += 1;
-    console.log(`Round ${roundCount}: `);
-    playerPick();
-    cpuAssign();
-    comparePicks(userPick, cpuPick);
-    console.log(`Player Score: ${playerScore}      CPU score: ${cpuScore}`)
+function gameOn() {
+    while (roundCount < 8) {
+        roundCount += 1;
+        console.log(`Round ${roundCount}: `);
+        playerPick();
+        console.log(`Player chose ${userPick}`);
+        cpuAssign();
+        console.log(`CPU chose ${cpuPick}`);
+        comparePicks(userPick, cpuPick);
+        console.log(`Player Score: ${playerScore}      CPU score: ${cpuScore}`);
     
+        if (playerScore == 4) {
+            console.log('PLAYER WINS THE GAME! Congratulations!!');
+            gameStatus = false;
+        } else if (cpuScore == 4) {
+            console.log('CPU WINS. Please play again.');
+        }
+    }
 }
-
-
-
-
-
-// Create game logic
