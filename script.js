@@ -3,9 +3,9 @@
 // The script is called and run from the rock-paper-scissors.html file, with output displayed in the browser console. 
 
 // Define Variables
+
 const min = Math.ceil(1);
 const max = Math.floor(3);
-let roundCount = 0
 let playerScore = 0;
 let cpuScore = 0;
 
@@ -31,10 +31,9 @@ function playerPick() {
 function cpuAssign(min, max) {
     cpuVal = Math.floor(Math.random() * (max - min + 1) + min);
     if(cpuVal >= 1 && cpuVal <= 3) {
-        (cpuVal == 1) ? cpuPick = "ROCK" : (cpuVal == 2) ? cpuPick = 'PAPER' : (cpuPick = "SCISSORS");
+        (cpuVal === 1) ? cpuPick = "ROCK" : (cpuVal === 2) ? cpuPick = 'PAPER' : (cpuPick = "SCISSORS");
         return cpuPick;
     } else console.log("Error in function: cpuAssign")
-    return cpuPick;
 }
 
 // Compare player and cpu picks, provide feedback log and increment score. 
@@ -55,6 +54,7 @@ function comparePicks(userPick, cpuPick) {
 
 // Game function to call to run game logic. Increments rounds and keeps score until user quits or first to 10 points.
 function gameOn() {
+    let roundCount = 0;
     while (roundCount < 8) {
         roundCount += 1;
         console.log(`Round ${roundCount}: `);
