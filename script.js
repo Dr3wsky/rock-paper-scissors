@@ -54,23 +54,23 @@ function comparePicks(userPick, cpuPick) {
 
 // Game function to call to run game logic. Increments rounds and keeps score until user quits or first to 10 points.
 function gameOn() {
-    let roundCount = 0;
-    while ((cpuScore < 4) || (playerScore < 4)) {
-        roundCount += 1;
-        console.log(`Round ${roundCount}: `);
+    // let roundCount = 0;
+    // while ((cpuScore < 4) || (playerScore < 4)) {
+    //     roundCount += 1;
+    //     console.log(`Round ${roundCount}: `);
         playerPick();
         console.log(`Player chose ${userPick}`);
         cpuAssign(min, max);
         console.log(`CPU chose ${cpuPick}`);
         comparePicks(userPick, cpuPick);
-        console.log(`Player Score: ${playerScore}      CPU score: ${cpuScore}`);
+        // console.log(`Player Score: ${playerScore}      CPU score: ${cpuScore}`);
     
-        if (playerScore == 4) {
-            console.log('PLAYER WINS THE GAME! Congratulations!!');
-            gameStatus = false;
-            break
-        } else if (cpuScore == 4) {
-            console.log('CPU WINS. Please play again.');
-        }
-    }
-}
+        // if (playerScore == 4) {
+        //     console.log('PLAYER WINS THE GAME! Congratulations!!');
+        //     gameStatus = false;
+        //     break
+        // } else if (cpuScore == 4) {
+        //     console.log('CPU WINS. Please play again.');
+        // }
+};
+// }
