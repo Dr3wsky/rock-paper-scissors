@@ -28,11 +28,12 @@ function playRound(e) {         // Starts a round by taking the user button clic
     const cpu = document.getElementById('cpu-pick');
     cpu.textContent = `CPU chooses: ${cpuPick}`;
 
-    // Compare picks and assign results
+    // Compare picks, assign results and update scores
     comparePicks(userPick, cpuPick);
-    const round = document.getElementById('round-result');
-    round.textContent = roundResult;
+    const score = document.getElementById('tally');
+    score.textContent = `Player: ${playerScore}    CPU: ${cpuScore}`;
 };
+
 
 // Use the random number gernerator from JS Math object to randomly assign cpu selection between min and max of 1-3, THEN convert random number to string for comparison with player choice.
 function cpuAssign(min, max) {
@@ -46,31 +47,20 @@ function cpuAssign(min, max) {
 // Compare player and cpu picks, provide feedback log and increment score. 
 function comparePicks(userPick, cpuPick) {
     if (userPick === cpuPick) {
-       return roundResult =`It's a draw!` ;
+        const round = document.getElementById('round-result');
+        round.textContent = `It's a draw!`;
 
     } else if ((userPick == 'ROCK' && cpuPick == 'SCISSORS') || (userPick == 'PAPER' && cpuPick == 'ROCK') ||
         (userPick == 'SCISSORS' && cpuPick == 'PAPER')) {
-        return roundResult = `Player wins this round!`;
+            const round = document.getElementById('round-result');
+            round.textContent = 'Player WINS!';
+            return playerScore += 1;
 
     } else {
-        return roundResult = 'CPU wins this round!';
-    }
-}
+        const round = document.getElementById('round-result');
+        round.textContent = 'CPU Wins';
+        return cpuScore += 1;
+}};
 
 const buttons = Array.from(document.querySelectorAll('.btn'));
 buttons.forEach(b => b.addEventListener('click', playRound));
-
-
-
-//         comparePicks(userPick, cpuPick);
-//         // console.log(`Player Score: ${playerScore}      CPU score: ${cpuScore}`);
-    
-//         // if (playerScore == 4) {
-//         //     console.log('PLAYER WINS THE GAME! Congratulations!!');
-//         //     gameStatus = false;
-//         //     break
-//         // } else if (cpuScore == 4) {
-//         //     console.log('CPU WINS. Please play again.');
-//         // }
-// };
-// // }
