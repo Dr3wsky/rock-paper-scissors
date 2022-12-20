@@ -15,17 +15,14 @@ let cpuPick;
 
 
 // DECLARE FUNCTIONS
-// Prompt player for a choice of R/P/S, then check spelling. Re-prompt until valid selection is provided.
-function playerPick() {
-    userPick = prompt("Choose Rock, Paper or Scissors")
-    userPick = userPick.toUpperCase();
-    while ((userPick != 'ROCK') && (userPick != 'PAPER') && (userPick != 'SCISSORS')) {
-        console.log("Invalid input. Be careful of spelling mistakes. Please select Rock, Paper, or Scissors")
-        userPick = prompt("Choose Rock, Paper or Scissors")
-        userPick = userPick.toUpperCase();
-    }
-    return userPick;
-}
+
+function playRound(e) {         // Starts a round by taking the user button click as input for selection, then calls the roundOn function. 
+    userPick = e.currentTarget.id;
+    console.log(userPick);
+   
+
+    
+};
 
 // Use the random number gernerator from JS Math object to randomly assign cpu selection between min and max of 1-3, THEN convert random number to string for comparison with player choice.
 function cpuAssign(min, max) {
@@ -50,27 +47,7 @@ function comparePicks(userPick, cpuPick) {
         console.log(`CPU wins this round!`);
         return cpuScore += 1;
     }
-}
+};
 
-// Game function to call to run game logic. Increments rounds and keeps score until user quits or first to 10 points.
-function gameOn() {
-    let roundCount = 0;
-    while ((cpuScore < 4) || (playerScore < 4)) {
-        roundCount += 1;
-        console.log(`Round ${roundCount}: `);
-        playerPick();
-        console.log(`Player chose ${userPick}`);
-        cpuAssign(min, max);
-        console.log(`CPU chose ${cpuPick}`);
-        comparePicks(userPick, cpuPick);
-        console.log(`Player Score: ${playerScore}      CPU score: ${cpuScore}`);
-    
-        if (playerScore == 4) {
-            console.log('PLAYER WINS THE GAME! Congratulations!!');
-            gameStatus = false;
-            break
-        } else if (cpuScore == 4) {
-            console.log('CPU WINS. Please play again.');
-        }
-    }
-}
+const buttons = Array.from(document.querySelectorAll('.btn'));
+buttons.forEach(b => b.addEventListener('click', playRound));
