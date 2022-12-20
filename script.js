@@ -9,23 +9,30 @@ const max = Math.floor(3);
 let playerScore = 0;
 let cpuScore = 0;
 
+let roundResult;
 let userPick;
 let cpuVal;
 let cpuPick; 
 
 
 // DECLARE FUNCTIONS
-// Prompt player for a choice of R/P/S, then check spelling. Re-prompt until valid selection is provided.
-function playerPick() {
-    userPick = prompt("Choose Rock, Paper or Scissors")
-    userPick = userPick.toUpperCase();
-    while ((userPick != 'ROCK') && (userPick != 'PAPER') && (userPick != 'SCISSORS')) {
-        console.log("Invalid input. Be careful of spelling mistakes. Please select Rock, Paper, or Scissors")
-        userPick = prompt("Choose Rock, Paper or Scissors")
-        userPick = userPick.toUpperCase();
-    }
-    return userPick;
-}
+
+function playRound(e) {         // Starts a round by taking the user button click as input for selection, then calls the roundOn function. 
+    //Assign player pick from button onput and display
+    userPick = e.currentTarget.id;
+    const user = document.getElementById('user-pick');
+    user.textContent = `Player chooses: ${userPick}`;
+
+    //Assign CPU pick from random generator function
+    cpuAssign(min, max);
+    const cpu = document.getElementById('cpu-pick');
+    cpu.textContent = `CPU chooses: ${cpuPick}`;
+
+    // Compare picks and assign results
+    comparePicks(userPick, cpuPick);
+    const round = document.getElementById('round-result');
+    round.textContent = roundResult;
+};
 
 // Use the random number gernerator from JS Math object to randomly assign cpu selection between min and max of 1-3, THEN convert random number to string for comparison with player choice.
 function cpuAssign(min, max) {
@@ -39,38 +46,22 @@ function cpuAssign(min, max) {
 // Compare player and cpu picks, provide feedback log and increment score. 
 function comparePicks(userPick, cpuPick) {
     if (userPick === cpuPick) {
-        console.log(`It's a draw!`);
+       return roundResult =`It's a draw!` ;
 
     } else if ((userPick == 'ROCK' && cpuPick == 'SCISSORS') || (userPick == 'PAPER' && cpuPick == 'ROCK') ||
         (userPick == 'SCISSORS' && cpuPick == 'PAPER')) {
-        console.log(`Player wins this round!`);
-        return playerScore += 1;
+        return roundResult = `Player wins this round!`;
 
     } else {
-        console.log(`CPU wins this round!`);
-        return cpuScore += 1;
+        return roundResult = 'CPU wins this round!';
     }
-};
+}
 
-function playRound(e) {
-    userPick = ;
-    console.log(userPick);
-};
-
-const buttons = Array.from(document.querySelectorAll('.buttons'));
+const buttons = Array.from(document.querySelectorAll('.btn'));
 buttons.forEach(b => b.addEventListener('click', playRound));
 
 
-// // Game function to call to run game logic. Increments rounds and keeps score until user quits or first to 10 points.
-// function gameOn() {
-//     // let roundCount = 0;
-//     // while ((cpuScore < 4) || (playerScore < 4)) {
-//     //     roundCount += 1;
-//     //     console.log(`Round ${roundCount}: `);
-//         playerPick();
-//         console.log(`Player chose ${userPick}`);
-//         cpuAssign(min, max);
-//         console.log(`CPU chose ${cpuPick}`);
+
 //         comparePicks(userPick, cpuPick);
 //         // console.log(`Player Score: ${playerScore}      CPU score: ${cpuScore}`);
     
