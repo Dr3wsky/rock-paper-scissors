@@ -9,6 +9,7 @@ const max = Math.floor(3);
 let playerScore = 0;
 let cpuScore = 0;
 
+let roundResult;
 let userPick;
 let cpuVal;
 let cpuPick; 
@@ -17,12 +18,22 @@ let cpuPick;
 // DECLARE FUNCTIONS
 
 function playRound(e) {         // Starts a round by taking the user button click as input for selection, then calls the roundOn function. 
+    //Assign player pick from button onput and display
     userPick = e.currentTarget.id;
-    console.log(userPick);
-   
+    const user = document.getElementById('user-pick');
+    user.textContent = `Player chooses: ${userPick}`;
 
-    
+    //Assign CPU pick from random generator function
+    cpuAssign(min, max);
+    const cpu = document.getElementById('cpu-pick');
+    cpu.textContent = `CPU chooses: ${cpuPick}`;
+
+    // Compare picks, assign results and update scores
+    comparePicks(userPick, cpuPick);
+    const score = document.getElementById('tally');
+    score.textContent = `Player: ${playerScore}    CPU: ${cpuScore}`;
 };
+
 
 // Use the random number gernerator from JS Math object to randomly assign cpu selection between min and max of 1-3, THEN convert random number to string for comparison with player choice.
 function cpuAssign(min, max) {
@@ -36,18 +47,20 @@ function cpuAssign(min, max) {
 // Compare player and cpu picks, provide feedback log and increment score. 
 function comparePicks(userPick, cpuPick) {
     if (userPick === cpuPick) {
-        console.log(`It's a draw!`);
+        const round = document.getElementById('round-result');
+        round.textContent = `It's a draw!`;
 
     } else if ((userPick == 'ROCK' && cpuPick == 'SCISSORS') || (userPick == 'PAPER' && cpuPick == 'ROCK') ||
         (userPick == 'SCISSORS' && cpuPick == 'PAPER')) {
-        console.log(`Player wins this round!`);
-        return playerScore += 1;
+            const round = document.getElementById('round-result');
+            round.textContent = 'Player WINS!';
+            return playerScore += 1;
 
     } else {
-        console.log(`CPU wins this round!`);
+        const round = document.getElementById('round-result');
+        round.textContent = 'CPU Wins';
         return cpuScore += 1;
-    }
-};
+}};
 
 const buttons = Array.from(document.querySelectorAll('.btn'));
 buttons.forEach(b => b.addEventListener('click', playRound));
