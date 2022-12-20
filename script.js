@@ -53,7 +53,7 @@ function comparePicks(userPick, cpuPick) {
 };
 
 function playRound(e) {
-    userPick = btn.innerHTML;
+    userPick = ;
     console.log(userPick);
 };
 
