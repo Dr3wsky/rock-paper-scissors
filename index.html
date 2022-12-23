@@ -6,29 +6,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock, Paper, Scissors, SHOOT!</title>
+  <link rel="shortcut icon" href="images/favicon.ico" />
   <link rel="stylesheet" href="styles.css">
   <script src="rps-func.js" defer></script>
 <body>
 
   <div class="header">
-  <h1>Rock Paper Scissors</h1>
+  <h1>Rock Paper Scissors . . . </h1>
   <h1>SHOOT!</h1>
 </div>
 
-  <p>The rules are simple: </p>
-  <ul>
-    <li>Paper > Rock</li>
-    <li>Rock > Scissors</li>  
-    <li>Scissors > Paper</li>
-</ul>
 
-<h3>GOOD LUCK</h3><br/>
-<button class="btn" id="ROCK">ROCK</button>
-<button class="btn" id="PAPER">PAPER</button>
-<button class="btn" id="SCISSORS">SCISSORS</button>
-<br/><br/>
+<div class="score-container">
+  <h3>GOOD LUCK</h3><br/>
+</div>
 
-<div class="results">
+<div class="play-container">
+  <button class="btn" id="ROCK">ROCK</button>
+  <button class="btn" id="PAPER">PAPER</button>
+  <button class="btn" id="SCISSORS">SCISSORS</button>
+</div>
+
+<div class="results-container">
   <p id="user-pick"></p>
   <p id="cpu-pick"></p>
   <h4 id="round-result"></h4>
