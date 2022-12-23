@@ -7,39 +7,51 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    background-image: url("images/background.jpg");
-    background-size: cover;
-    font-family:  'Lucida Console', 'Lucida Sans Typewriter';
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-image: url("images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-family:  'Lucida Console', 'Lucida Sans Typewriter';
+}
+
+html {
+  height: 100%;
 }
 
 .header {
-    text-align: center;
-    color: yellow;
-    font-size: 24px;
-    padding: 24px;
+  text-align: center;
+  color: yellow;
+  font-size: 24px;
+  padding: 24px;
 }
 
+.score-container {
+  display: flex;
+  
+}
 
 .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 6px;
-    color: yellow;
-    font-size: 20px;
-    padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  color: yellow;
+  font-size: 20px;
+  padding: 24px;
 }
 
 .am-github {
-    color: yellow;
-    text-decoration: none;
-    transition: transform 0.3s ease-in-out;
-  }
-  
+  color: yellow;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out;
+}
+
 .am-github:hover {
-    transform: scale(1.5);
+  transform: scale(1.5);
   }
 

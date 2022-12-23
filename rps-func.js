@@ -30,8 +30,10 @@ function playRound(e) {         // Starts a round by taking the user button clic
 
     // Compare picks, assign results and update scores
     comparePicks(userPick, cpuPick);
-    const score = document.getElementById('tally');
-    score.textContent = `Player: ${playerScore}    CPU: ${cpuScore}`;
+    const playerTally = document.getElementById('player-tally');
+    const cpuTally = document.getElementById('cpu-tally');
+    playerTally.textContent = `${playerScore}`;
+    cpuTally.textContent = `${cpuScore}`;
 };
 
 
