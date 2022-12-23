@@ -9,22 +9,16 @@
 body {
     display: flex;
     flex-direction: column;
-    /* background-image: url("images/background.jpg");
-    background-size: cover; */
-    font-family: 'Consolas', 'Lucida Console', 'Lucida Sans Typewriter';
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    font-family:  'Lucida Console', 'Lucida Sans Typewriter';
 }
 
 .header {
-    display: flex;
-    flex: 1 1 100px;
-    justify-content: space-around;
-    align-items: center;
+    text-align: center;
     color: yellow;
     font-size: 24px;
     padding: 24px;
-
-
-    background-color: aqua;
 }
 
 
@@ -37,8 +31,6 @@ body {
     color: yellow;
     font-size: 20px;
     padding: 12px;
-
-    background-color: aqua;
 }
 
 .am-github {

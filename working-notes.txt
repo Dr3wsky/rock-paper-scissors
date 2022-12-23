@@ -1,0 +1,10 @@
+Header: 
+- Add typing animation, and only reveal game board when done.
+- Make font more gritty
+
+Game Layout: 
+- Make buttons icon images, square
+- Bounce on hover
+- Grow or change colour on seelction
+- CPU option appears from Grow
+- Score flashes green for who won
