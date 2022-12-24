@@ -20,13 +20,9 @@ let cpuPick;
 function playRound(e) {         // Starts a round by taking the user button click as input for selection, then calls the roundOn function. 
     //Assign player pick from button onput and display
     userPick = e.currentTarget.id;
-    const user = document.getElementById('user-pick');
-    user.textContent = `Player chooses: ${userPick}`;
 
     //Assign CPU pick from random generator function
     cpuAssign(min, max);
-    const cpu = document.getElementById('cpu-pick');
-    cpu.textContent = `CPU chooses: ${cpuPick}`;
 
     // Compare picks, assign results and update scores
     comparePicks(userPick, cpuPick);
@@ -54,13 +50,13 @@ function comparePicks(userPick, cpuPick) {
 
     } else if ((userPick == 'ROCK' && cpuPick == 'SCISSORS') || (userPick == 'PAPER' && cpuPick == 'ROCK') ||
         (userPick == 'SCISSORS' && cpuPick == 'PAPER')) {
-            const round = document.getElementById('round-result');
-            round.textContent = 'Player WINS!';
-            return playerScore += 1;
+        const round = document.getElementById('round-result');
+        round.textContent = 'Player WINS!';
+        return playerScore += 1;
 
     } else {
         const round = document.getElementById('round-result');
-        round.textContent = 'CPU Wins';
+        round.textContent = 'CPU Wins . . .';
         return cpuScore += 1;
 }};
 

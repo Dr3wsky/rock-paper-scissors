@@ -10,35 +10,139 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  background-image: url("images/background.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  font-family:  'Lucida Console', 'Lucida Sans Typewriter';
+  background-image: url("images/background3.jpg");
+  background-repeat: repeat;
+  background-size: 100%, 100%;
+  font-family: 'Papyrus','Lucida Console', 'Lucida Sans Typewriter';
 }
 
 html {
   height: 100%;
 }
 
+h2 {
+  color: yellow;
+  padding-bottom: 24px;
+  font-weight:bolder;
+  font-size: 48px;
+}
+
+h4 {
+  color: yellow;
+  padding-top: 24px;
+  font-size: 32px;
+}
+
+
 .header {
+  justify-content: flex-end;
   text-align: center;
   color: yellow;
-  font-size: 24px;
+  font-size: 32px;
   padding: 24px;
+  margin-bottom: 24px;
 }
 
-.score-container {
+.play-container {
   display: flex;
-  
 }
 
-.footer {
+.player-subcontainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 40%;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.btn{
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100px;
+  width: 100px;
+  align-content: center;
+  border-radius: 10px;
+  border: solid rgb(105,105,105) 6px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 24px;
+  transition: transform 0.025s ease-in;
+}
+
+.btn:hover {
+  border: solid green 6px;
+  transform: scale(1.1);
+}
+
+.btn:focus {
+  border: solid orange 6px;
+  transform: scale(1.2);
+}
+
+.image {
+  object-fit: scale-down;
+  overflow: auto;
+}
+
+.results-subcontainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 20%;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+.score {
+  display: flex;
   flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.cpu-subcontainer { 
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 40%;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+
+
+.play {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cpu, .player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 150px;
+  align-content: center;
+  border-radius: 10px;
+  border: dashed black 6px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 24px;
+  transition: transform 0.025s ease-in;
+}
+
+#footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 6px;
   color: yellow;
   font-size: 20px;
@@ -46,12 +150,11 @@ html {
 }
 
 .am-github {
-  color: yellow;
   text-decoration: none;
   transition: transform 0.3s ease-in-out;
+  color: yellow;
 }
 
 .am-github:hover {
   transform: scale(1.5);
   }
-
