@@ -1,5 +1,3 @@
 To Do / Add
 
-- Update main image with selection (JS function)
-- Update winner border to green
 - Restart game when someone wins 5 pts

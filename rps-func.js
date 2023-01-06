@@ -14,25 +14,41 @@ let userPick;
 let cpuVal;
 let cpuPick; 
 
+// Set DOM variables for manipulation
+const endgameModal = document.getElementById('endgameModal')
+const endgameMsg = document.getElementById('endgameMsg')
+const overlay = document.getElementById('overlay')
+const restartBtn = document.getElementById('restartBtn')
+const buttons = Array.from(document.querySelectorAll('.btn'));
+
+// Create Event listener for buttons
+buttons.forEach(b => b.addEventListener('click', playRound));
+restartBtn.addEventListener('click', restartGame)
+overlay.addEventListener('click', closeEndgameModal)
 
 // DECLARE FUNCTIONS
 
-function playRound(e) {         // Starts a round by taking the user button click as input for selection, then calls the roundOn function. 
-    //Assign player pick from button onput and display
+function playRound(e) {         // function is called when a player input button is clicked. Player selection starts round
+    //Assign player pick from button input and update display image
     userPick = e.currentTarget.id;
     updateImage(userPick, 'player');
-    // const playerImage = document.getElementById('player-main');
-    // playerImage.innerHTML = updateMain(userPick); 
 
-    //Assign CPU pick from random generator function
+    //Assign CPU pick from random generator function and update display image
     cpuAssign(min, max);
     updateImage(cpuPick, 'cpu');
+
     // Compare picks, assign results and update scores
     comparePicks(userPick, cpuPick);
     const playerTally = document.getElementById('player-tally');
     const cpuTally = document.getElementById('cpu-tally');
     playerTally.textContent = `${playerScore}`;
     cpuTally.textContent = `${cpuScore}`;
+    
+    // Check scores for endgame
+    if (isGameOver()) {
+        openEndgameModal()
+        setFinalMessage()
+      }
 };
 
 
@@ -75,6 +91,34 @@ function updateImage(pick, option) {
     }
 };
 
+// Check score if a player has > 5 points
+function isGameOver() {
+    return (playerScore === 5) || (cpuScore === 5);
+};
 
-const buttons = Array.from(document.querySelectorAll('.btn'));
-buttons.forEach(b => b.addEventListener('click', playRound));
+// Functions to set endgame modals to active, and then close when selected
+function openEndgameModal() {
+    endgameModal.classList.add('active');
+    overlay.classList.add('active');
+};
+  
+function closeEndgameModal() {
+    endgameModal.classList.remove('active');
+    overlay.classList.remove('active');
+};
+  
+function setFinalMessage() {
+    return playerScore > computerScore
+      ? (endgameMsg.textContent = 'You won!')
+      : (endgameMsg.textContent = 'You lost...')
+};
+
+function restartGame() {
+    playerScore = 0;
+    cpuScore = 0;
+    document.getElementById(`cpu-main`).firstChild.src = './images/question-mark.png';
+    document.getElementById(`player-main`).firstChild.src = './images/question-mark.png';
+    document.getElementById('round-result').textContent = '';
+    endgameModal.classList.remove('active');
+    overlay.classList.remove('active');
+};
