@@ -1,3 +1,0 @@
-To Do / Add
-
-- Restart game when someone wins 5 pts
