@@ -20,10 +20,13 @@ let cpuPick;
 function playRound(e) {         // Starts a round by taking the user button click as input for selection, then calls the roundOn function. 
     //Assign player pick from button onput and display
     userPick = e.currentTarget.id;
+    updateImage(userPick, 'player');
+    // const playerImage = document.getElementById('player-main');
+    // playerImage.innerHTML = updateMain(userPick); 
 
     //Assign CPU pick from random generator function
     cpuAssign(min, max);
-
+    updateImage(cpuPick, 'cpu');
     // Compare picks, assign results and update scores
     comparePicks(userPick, cpuPick);
     const playerTally = document.getElementById('player-tally');
@@ -58,7 +61,20 @@ function comparePicks(userPick, cpuPick) {
         const round = document.getElementById('round-result');
         round.textContent = 'CPU Wins . . .';
         return cpuScore += 1;
-}};
+    }
+};
+
+// Update main image with selection
+function updateImage(pick, option) {
+    if (pick == 'ROCK') {
+        document.getElementById(`${option}-main`).firstChild.src = './images/rps-logos-rock.png';
+    } else if (pick == 'PAPER') {
+        document.getElementById(`${option}-main`).firstChild.src = './images/rps-logos-paper.png';
+    } else if (pick == 'SCISSORS') {
+        document.getElementById(`${option}-main`).firstChild.src = './images/rps-logos-scissors.png';
+    }
+};
+
 
 const buttons = Array.from(document.querySelectorAll('.btn'));
 buttons.forEach(b => b.addEventListener('click', playRound));
