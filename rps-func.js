@@ -19,12 +19,13 @@ const endgameModal = document.getElementById('endgameModal')
 const endgameMsg = document.getElementById('endgameMsg')
 const overlay = document.getElementById('overlay')
 const restartBtn = document.getElementById('restartBtn')
+const playerTally = document.getElementById('player-tally');
+const cpuTally = document.getElementById('cpu-tally');
 const buttons = Array.from(document.querySelectorAll('.btn'));
 
 // Create Event listener for buttons
 buttons.forEach(b => b.addEventListener('click', playRound));
-restartBtn.addEventListener('click', restartGame)
-overlay.addEventListener('click', closeEndgameModal)
+restartBtn.addEventListener('click', restartGame);
 
 // DECLARE FUNCTIONS
 
@@ -39,15 +40,13 @@ function playRound(e) {         // function is called when a player input button
 
     // Compare picks, assign results and update scores
     comparePicks(userPick, cpuPick);
-    const playerTally = document.getElementById('player-tally');
-    const cpuTally = document.getElementById('cpu-tally');
     playerTally.textContent = `${playerScore}`;
     cpuTally.textContent = `${cpuScore}`;
     
     // Check scores for endgame
     if (isGameOver()) {
-        openEndgameModal()
-        setFinalMessage()
+        setFinalMessage();
+        openEndgameModal();
       }
 };
 
@@ -99,26 +98,31 @@ function isGameOver() {
 // Functions to set endgame modals to active, and then close when selected
 function openEndgameModal() {
     endgameModal.classList.add('active');
+    endgameMsg.classList.add('active');
     overlay.classList.add('active');
 };
-  
+
 function closeEndgameModal() {
     endgameModal.classList.remove('active');
+    endgameMsg.classList.remove('active');
     overlay.classList.remove('active');
 };
   
 function setFinalMessage() {
-    return playerScore > computerScore
+    return playerScore > cpuScore
       ? (endgameMsg.textContent = 'You won!')
       : (endgameMsg.textContent = 'You lost...')
 };
 
+// Reset all counters and refresh to starting conditions
 function restartGame() {
     playerScore = 0;
     cpuScore = 0;
+    playerTally.textContent = `${playerScore}`;
+    cpuTally.textContent = `${cpuScore}`;
+    document.getElementById('round-result').textContent = '';
     document.getElementById(`cpu-main`).firstChild.src = './images/question-mark.png';
     document.getElementById(`player-main`).firstChild.src = './images/question-mark.png';
-    document.getElementById('round-result').textContent = '';
     endgameModal.classList.remove('active');
     overlay.classList.remove('active');
 };
