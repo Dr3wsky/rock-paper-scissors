@@ -1,59 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock, Paper, Scissors, SHOOT!</title>
-  <link rel="shortcut icon" href="images/favicon.ico" />
-  <link rel="stylesheet" href="styles.css">
-  <script src="rps-func.js" defer></script>
-<body>
-  <div class="header">
-  <h1>Rock Paper Scissors . . . </h1>
-</div>
-<div class="play-container">
-  <div class="player-subcontainer">
-    <h2 class="subtitle">PLAYER</h2>
-    <div class="player-align">
-    <div class="button-container">
-      <button class="btn" id="ROCK"><img class="image" src="./images/rps-logos-rock-yellow.png"></button>
-      <button class="btn" id="PAPER"><img class="image"  src="./images/rps-logos-paper-yellow.png"></button>
-      <button class="btn" id="SCISSORS"><img class="image" src="./images/rps-logos-scissors-yellow.png"></button>
-    </div> 
-    <div class="play">
-      <button class="player" id="player-main"><img class="image" src="./images/question-mark.png"></button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock, Paper, Scissors, SHOOT!</title>
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="rps-func.js" defer></script>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Rock Paper Scissors . . .</h1>
     </div>
-  </div>
-  </div> 
-  <div class="results-subcontainer">
-    <div class="results-description">
-      <h4 id="round-blurb"></h4>
-      <h4 id="round-result"></h4>
-    </div>
-    <div class="score">
-      <h2 id="player-tally">0</h2>
-      <h2 class="separator-score">-</h2>
-      <h2 id="cpu-tally">0</h2>
-    </div>
-  </div>
-  <div class="cpu-subcontainer">
-    <h2 class="subtitle">CPU</h2>
-      <div class="play" id="cpu-play">
-        <button class="cpu" id="cpu-main"><img class="image" src="./images/question-mark.png"></button>
+    <div class="play-container">
+      <div class="player-subcontainer">
+        <h2 class="subtitle">PLAYER</h2>
+        <div class="player-align">
+          <div class="button-container">
+            <button class="btn" id="ROCK">
+              <img class="image" src="./images/rps-logos-rock-yellow.png" />
+            </button>
+            <button class="btn" id="PAPER">
+              <img class="image" src="./images/rps-logos-paper-yellow.png" />
+            </button>
+            <button class="btn" id="SCISSORS">
+              <img class="image" src="./images/rps-logos-scissors-yellow.png" />
+            </button>
+          </div>
+          <div class="play">
+            <button class="player" id="player-main">
+              <img class="image" src="./images/question-mark.png" />
+            </button>
+          </div>
+        </div>
       </div>
-  </div>
-</div>
-<footer id="footer">
-   <a class="am-github" href="https://github.com/Dr3wsky" target="_blank"> Copyright &copy Dr3wsky <script>
-    document.write(new Date().getFullYear())
-  </script></a>
-</footer>
-<div class="modal" id="endgameModal">
-  <p class="modal-title" id="endgameMsg"></p>
-  <button class="btn-restart" id="restartBtn">Play again?</button>
-</div>
-<div class="overlay" id="overlay"></div>
-</body>
+      <div class="results-subcontainer">
+        <div class="results-description">
+          <h4 id="round-blurb"></h4>
+          <h4 id="round-result"></h4>
+        </div>
+        <div class="score">
+          <h2 id="player-tally">0</h2>
+          <h2 class="separator-score">-</h2>
+          <h2 id="cpu-tally">0</h2>
+        </div>
+      </div>
+      <div class="cpu-subcontainer">
+        <h2 class="subtitle">CPU</h2>
+        <div class="play" id="cpu-play">
+          <button class="cpu" id="cpu-main">
+            <img class="image" src="./images/question-mark.png" />
+          </button>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+      <a class="am-github" href="https://github.com/Dr3wsky" target="_blank">
+        Copyright &copy Dr3wsky
+        <script>
+          document.write(new Date().getFullYear());
+        </script></a
+      >
+    </footer>
+    <div class="modal" id="endgameModal">
+      <p class="modal-title" id="endgameMsg"></p>
+      <button class="btn-restart" id="restartBtn">Play again?</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
+  </body>
 </html>

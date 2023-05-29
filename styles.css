@@ -14,7 +14,7 @@ body {
   background-image: url("images/background3.jpg");
   background-repeat: repeat;
   background-size: 100%, 100%;
-  font-family: 'Papyrus','Lucida Console', 'Lucida Sans Typewriter';
+  font-family: "Papyrus", "Lucida Console", "Lucida Sans Typewriter";
 }
 
 html {
@@ -24,7 +24,7 @@ html {
 h2 {
   color: yellow;
   padding-bottom: 24px;
-  font-weight:bolder;
+  font-weight: bolder;
   font-size: 48px;
 }
 
@@ -73,7 +73,7 @@ h4 {
   justify-content: center;
 }
 
-.btn{
+.btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,7 +81,7 @@ h4 {
   width: 100px;
   align-content: center;
   border-radius: 10px;
-  border: solid rgb(105,105,105) 6px;
+  border: solid rgb(105, 105, 105) 6px;
   margin-left: 16px;
   margin-right: 16px;
   margin-bottom: 24px;
@@ -104,13 +104,13 @@ h4 {
 }
 
 .results-subcontainer {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 20%;
-    flex-wrap: wrap;
-    min-width: 150px;
-    text-align: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 20%;
+  flex-wrap: wrap;
+  min-width: 150px;
+  text-align: center;
+  justify-content: center;
 }
 
 .score {
@@ -120,10 +120,9 @@ h4 {
   align-items: center;
   justify-content: center;
   gap: 16px;
-
 }
 
-.cpu-subcontainer { 
+.cpu-subcontainer {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -138,10 +137,11 @@ h4 {
 }
 
 #cpu-play {
-padding-top: 100px;
+  padding-top: 100px;
 }
 
-.cpu, .player {
+.cpu,
+.player {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -174,10 +174,10 @@ padding-top: 100px;
 
 .am-github:hover {
   transform: scale(1.5);
-  }
+}
 
-  /* ENDGAME MODAL */
-  /* MODALS */
+/* ENDGAME MODAL */
+/* MODALS */
 
 .modal {
   position: fixed;
